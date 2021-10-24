@@ -1,0 +1,167 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        <section class="py-5 at-the-top" id="at-the-top">
+            <div class="row">
+                <div class="col-md-8 recents">
+                    <div id="recent-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#recent-carousel" data-bs-slide-to="0"
+                                    class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#recent-carousel" data-bs-slide-to="1"
+                                    aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#recent-carousel" data-bs-slide-to="2"
+                                    aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <a href="#">
+                                    <img src="{{ asset('assets/img/woman.jpg') }}" class="d-block w-100" alt="...">
+                                    <div class="carousel-caption d-none d-md-block">
+                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolor dolore,
+                                           dolorum harum id, minima nam odit, pariatur perferendis quos reiciendis suscipit
+                                           ut velit veritatis.</p>
+                                        <div class="row">
+                                            <div class="col-md-6 text-start">
+                                                <h5 class="text-warning text-uppercase zen-old">First slide label</h5>
+                                            </div>
+                                            <div class="col-md-6 text-end">
+                                                <i class="ri-time-fill"></i> Samedi 18/04/1970 à 13h53
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </a>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('assets/img/anemone.jpg') }}" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet explicabo nemo
+                                       reiciendis reprehenderit voluptatem. Debitis eius error et incidunt modi
+                                       necessitatibus officiis ratione rerum temporibus.</p>
+                                    <div class="row">
+                                        <div class="col-md-6 text-start">
+                                            <h5 class="text-warning text-uppercase zen-old">Second slide label</h5>
+                                        </div>
+                                        <div class="col-md-6 text-end">
+                                            <i class="ri-time-fill"></i> Samedi 18/04/1970 à 13h53
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img src="{{ asset('assets/img/hands.jpg') }}" class="d-block w-100" alt="...">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi,
+                                       corporis dignissimos distinctio et impedit incidunt laboriosam mollitia, porro
+                                       quia quod quos ratione rem sequi.</p>
+                                    <div class="row">
+                                        <div class="col-md-6 text-start">
+                                            <h5 class="text-warning text-uppercase zen-old">Third slide label</h5>
+                                        </div>
+                                        <div class="col-md-6 text-end">
+                                            <i class="ri-time-fill"></i> Samedi 18/04/1970 à 13h53
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#recent-carousel"
+                                data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Précédent</span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#recent-carousel"
+                                data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Suivant</span>
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-4 pt-4 pt-md-0 popular">
+                    <h6 class="text-uppercase zen-old">Articles Populaires <i class="ri-play-list-2-fill"></i></h6>
+                    <div class="row">
+                        <div class="col-md-2 text-warning">12/05</div>
+                        <div class="col-md-10 font-color">
+                            <a href="#">
+                                Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                                Architecto
+                                eligendi id quo.
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="related py-5" id="related">
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="section-header border-bottom border-5 s-bc-b-green mb-3">
+                        <h6 class="zen-old text-uppercase">A lire aussi</h6>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4 col-sm-4">
+                            <img src="{{ asset('assets/img/flower-56414.jpg') }}" class="img-fluid" alt="">
+                            <h6 class="text-warning text-uppercase">lorem cantum</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut cumque fugiat
+                               nam saepe ut?</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <img src="{{ asset('assets/img/hands.jpg') }}" class="img-fluid" alt="">
+                            <h6 class="text-warning text-uppercase">Lorem ipsum.</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut cumque fugiat
+                               nam saepe ut?</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <img src="{{ asset('assets/img/woman.jpg') }}" class="img-fluid" alt="">
+                            <h6 class="text-warning text-uppercase">lorem cantum</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut cumque fugiat
+                               nam saepe ut?</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <img src="{{ asset('assets/img/cat.jpg') }}" class="img-fluid" alt="">
+                            <h6 class="text-warning text-uppercase">Lorem ipsum.</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, mollitia.</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <img src="{{ asset('assets/img/computer.jpg') }}" class="img-fluid" alt="">
+                            <h6 class="text-warning text-uppercase">lorem cantum</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut cumque fugiat
+                               nam saepe ut?</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <img src="{{ asset('assets/img/flower-2919284_640.jpg') }}" class="img-fluid" alt="">
+                            <h6 class="text-warning text-uppercase">lorem cantum</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut cumque fugiat
+                               nam saepe ut?</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <img src="{{ asset('assets/img/hands.jpg') }}" class="img-fluid" alt="">
+                            <h6 class="text-warning text-uppercase">Lorem ipsum.</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat impedit natus quos.</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <img src="{{ asset('assets/img/flower-field-250016_640.jpg') }}" class="img-fluid" alt="">
+                            <h6 class="text-warning text-uppercase">lorem cantum</h6>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut cumque fugiat
+                               nam saepe ut?</p>
+                        </div>
+                        <div class="col-md-4 col-sm-4">
+                            <a href="#">
+                                <img src="{{ asset('assets/img/flower-3876195_640.jpg') }}" class="img-fluid" alt="">
+                                <h6 class="text-warning text-uppercase">Lorem ipsum.</h6>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur aut cumque fugiat
+                                   nam saepe ut?</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}

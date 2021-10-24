@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
         <meta charset="UTF-8">
         <title>{% block title %}Welcome!{% endblock %}</title>
         {# Run `composer require symfony/webpack-encore-bundle`
            and uncomment the following Encore helpers to start using Symfony UX #}
+        <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
+
+        {#        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"#}
+        {#              integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="#}
+        {#              crossorigin="anonymous" referrerpolicy="no-referrer" />#}
+        <link rel="stylesheet" href="{{ asset('assets/stylesheets/bootstrap.min.css') }}">
+        <link rel="stylesheet" href="{{ asset('assets/stylesheets/screen.css') }}">
         {% block stylesheets %}
             {#{{ encore_entry_link_tags('app') }}#}
         {% endblock %}
@@ -12,8 +19,55 @@
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
+        <script src="{{ asset('assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="{{ asset('assets/js/script.js') }}"></script>
     </head>
     <body>
+        <header class="header pt-4 pt-md-0">
+            <div class="top-header bg-green font-light-color d-flex align-items-center w-100">
+                <div class="row align-items-center w-100">
+                    <div class="col-lg-8 col-md-6 ps-5">Pour toutes informations, nous contactez aux
+                                                                    adresses suivante
+                    </div>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="row align-items-center text-end">
+                            <div class="col-md-6"><i class="ri-phone-line"></i> +000 000 000 000</div>
+                            <div class="col-md-6"><i class="ri-mail-line"></i> sankuru@sankuru.net</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-header">
+                <div class="row align-items-center pb-3">
+                    <div class="col-sm-3"><img src="{{ asset('assets/img/logo/Sankuru.png') }}" alt="Logo de Sankuru"
+                                               class="site-logo">
+                    </div>
+                    <div class="col-sm-6">
+                        <form method="get" class="search-form">
+                            <input type="text" placeholder="Faire une recherche" class="search-input">
+                        </form>
+                    </div>
+                    <div class="col-sm-3">
+                        <a class="btn" href="#"><i class="ri-login-box-fill"></i>
+                            S'inscrire</a>
+                        <a class="btn" href="#"><i class="ri-door-open-fill"></i> Se Connecter</a>
+                    </div>
+                </div>
+                <div class="row align-items-center justify-content-center">
+                    <nav>
+                        <ul class="d-flex justify-content-center align-items-center">
+                            <li><a href="#">Accueil</a></li>
+                            <li class="active"><a href="#">Politique</a></li>
+                            <li><a href="#">Economie</a></li>
+                            <li><a href="#">Santé</a></li>
+                            <li><a href="#">Education</a></li>
+                            <li><a href="#">Société</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </header>
+
         {% block body %}{% endblock %}
     </body>
 </html>
