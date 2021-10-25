@@ -5,6 +5,10 @@
 {% block body %}
     <div class="container">
 
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+
         <section class="py-5 at-the-top" id="at-the-top">
             <div class="row">
                 <div class="col-md-8 recents">
