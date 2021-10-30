@@ -46,7 +46,7 @@
                                                                id="active" {{ (post.active) ? 'checked' : '' }}>
                                                     </div>
                                                 </td>
-                                                <td>{{ post.createdAt | date }}</td>
+                                                <td>{{ (post.createdAt | date('Y-m-d H:i')) | format_datetime('short', 'short', locale='fr') }}</td>
                                                 <td>
                                                     <a href="{{ path('post_edit', {'slug': post.slug}) }}"
                                                        class=""><i class="ri-edit-line"></i></a>

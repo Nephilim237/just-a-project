@@ -9,25 +9,23 @@
                 <div class="col-md-8 recents">
                     <div id="recent-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
                         <div class="carousel-indicators">
-                            <button type="button" data-bs-target="#recent-carousel" data-bs-slide-to="0"
-                                    class="active" aria-current="true" aria-label="Slide 1"></button>
-                            <button type="button" data-bs-target="#recent-carousel" data-bs-slide-to="1"
-                                    aria-label="Slide 2"></button>
-                            <button type="button" data-bs-target="#recent-carousel" data-bs-slide-to="2"
-                                    aria-label="Slide 3"></button>
+                            {% for post in posts %}
+                                <button type="button" data-bs-target="#recent-carousel" data-bs-slide-to="{{ loop.index0 }}"
+                                        class="{{ loop.index == 1 ? ' active' : '' }}" aria-current="true" aria-label="Slide {{ loop.index }}"></button>
+                            {% endfor %}
                         </div>
                         <div class="carousel-inner">
                             {% for post in posts %}
-                                <div class="carousel-item">
-                                    <img src="{{ asset('assets/posts/' ~ post.images[0].name ) }}" class="d-block w-100" alt="...">
+                                <div class="carousel-item {{ loop.index == 1 ? ' active' : '' }}">
+                                    <img src="{{ asset('uploads/posts/' ~ post.images[0].name ) | imagine_filter('homepage_filter') }}" class="d-block w-100" alt="...">
                                     <div class="carousel-caption d-none d-md-block">
-                                        <p>{{ post.content }}</p>
+                                        <p><span class="orange fs-6 text-uppercase fw-bold">{{ post.title }} :</span> {{ post.getExcerpt }}...</p>
                                         <div class="row">
                                             <div class="col-md-6 text-start">
                                                 <h5 class="text-warning zen-old">{{ post.category }}</h5>
                                             </div>
                                             <div class="col-md-6 text-end">
-                                                <i class="ri-time-fill"></i>{{ post.createdAt | date}}
+                                                <i class="ri-time-fill"></i>{{ (post.createdAt | date('Y-m-d H:i')) | format_datetime('full', 'short', locale='fr')}}
                                             </div>
                                         </div>
                                     </div>
