@@ -1,0 +1,47 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}{{ app.user.fullName }}{% endblock %}
+
+{% block body %}
+    <section>
+        <div class="row me-0">
+            {{ include('partials/_profileLeft.html.twig') }}
+
+            <div class="col-md-9 cc-profile-right">
+                <div class="container-fluid py-3">
+                    <div class="row mx-0">
+
+                        {% for message in app.flashes('success') %}
+                            <div class='alert alert-success text-center fs-5 col-md-10 mx-auto'>{{ message }}</div>
+                        {%  endfor %}
+
+                        <div class="col-md-6">
+                            <div class="col-12 border-bottom s-bc-b-green mb-3">
+                                <h5 class="piazzo text-center">Vos information</h5>
+                            </div>
+                            <span class="fw-bold">Nom : </span><span class="fs-6">{{ app.user.name }}</span> <br>
+                            <span class="fw-bold">Prénom : </span><span class="fs-6">{{ app.user.firstname }}</span>
+                            <br>
+                            <span class="fw-bold">Naissance : </span><span class="fs-6"></span>
+                            <br>
+                            <span class="fw-bold">Sexe : </span><span class="fs-6"></span> <br>
+                            <span class="fw-bold">Adresse : </span><span class="fs-6"></span> <br>
+                            <span class="fw-bold">Telephone : </span><span class="fs-6"></span> <br>
+                            <span class="fw-bold">Biographie : </span><span class="fs-6"></span> <br>
+                            <form action="" method="post">
+                                <a href="{{path('admin_profile_edit')}}" class="btn-link btn">Editer profil</a>
+                                <a href="{{path('admin_password_edit')}}" class="btn-link btn">Editer mot de passe</a>
+                            </form>
+                        </div>
+
+                        <div class="col-md-6">
+                            <div class="row">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

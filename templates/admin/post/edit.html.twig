@@ -1,0 +1,57 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}{{ pageTitle }}{% endblock %}
+
+{% block body %}
+    {{ include('partials/_adminHeader.html.twig') }}
+    <section>
+        <div class="row me-0">
+            {{ include('partials/_profileLeft.html.twig') }}
+
+            <div class="col-md-9 cc-profile-right">
+                <div class="container-fluid py-3">
+                    <div class="row mx-0 align-items-center">
+                        <div class="col-sm-10 col-md-6 mx-auto">
+                            <h5 class="b-title fs-4 orange">Mettre à jour un article.</h5>
+
+                            {{ form_start(form) }}
+                            <div class="mb-3">
+                                {{ form_row(form.title) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.content) }}
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.category) }}
+                            </div>
+                        </div>
+                        <div class="col-sm-10 col-md-6 mx-auto">
+                            <div class="mb-3">
+                                <h6 class="orange">Images de l'article</h6>
+                                <div class="row">
+                                    {% for image in post.images %}
+                                        <div class="col-sm-4">
+                                            <img src="{{ asset('uploads/posts/'~ image.name) }}" alt=""
+                                                 class="img-fluid">
+                                            <a href="{{ path('post_image_drop', {'id': image.id}) }}" data-delete
+                                               data-token="{{ csrf_token('delete' ~ image.id) }}">Supprimer</a>
+                                        </div>
+
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                {{ form_row(form.images) }}
+                            </div>
+                            <div class="mb-3">
+                                <button type="submit" class="cc-btn cc-btn-big cc-btn-outline">Modifier <i
+                                            class="ri-refresh-line"></i></button>
+                            </div>
+                            {{ form_end(form) }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

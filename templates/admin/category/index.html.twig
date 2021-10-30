@@ -1,0 +1,51 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}
+    Gestion des catégories
+{% endblock %}
+
+
+{% block body %}
+    {{ include('partials/_adminHeader.html.twig') }}
+    <section>
+        <div class="row me-0">
+            {{ include('partials/_profileLeft.html.twig') }}
+
+            <div class="col-md-9 cc-profile-right  py-3">
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success" role="alert">{{ message }}</div>
+                {% endfor %}
+
+                <div class="container-fluid">
+                    <div class="row mx-0">
+                        <div class="col">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Catégorie</th>
+                                        <th scope="col">Parent</th>
+                                        <th scope="col">Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for category in categories %}
+                                        <tr>
+                                            <th scope="row">{{ category.id }}</th>
+                                            <td>{{ category.title }}</td>
+                                            <td>{{ category.parent }}</td>
+                                            <td>
+                                                <a href="{{ path('category_edit', {id: category.id}) }}" class="cc-btn cc-btn-mini"><i class="ri-edit-line"></i></a>
+                                            </td>
+                                        </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}

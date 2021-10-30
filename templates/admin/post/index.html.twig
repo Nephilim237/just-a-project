@@ -1,0 +1,92 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}
+    {{ pageTitle }}
+{% endblock %}
+
+
+{% block body %}
+    {{ include('partials/_adminHeader.html.twig') }}
+    <section>
+        <div class="row me-0">
+            {{ include('partials/_profileLeft.html.twig') }}
+
+            <div class="col-md-9 cc-profile-right  py-3">
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-success fs-6 fw-bold text-center" role="alert">{{ message }}</div>
+                {% endfor %}
+
+                    <div class="container-fluid">
+                        <div class="row mx-0">
+                            {% if posts | length > 0 %}
+                            <div class="col">
+                                <table class="table table-striped table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">#</th>
+                                            <th scope="col">Titre</th>
+                                            <th scope="col">Category</th>
+                                            <th scope="col">Publié</th>
+                                            <th scope="col">Date Pub</th>
+                                            <th scope="col">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {% for post in posts %}
+                                            <tr>
+                                                <th scope="row">{{ post.id }}</th>
+                                                <td>{{ post.title }}</td>
+                                                <td>{{ post.category }}</td>
+                                                <td>
+                                                    <div class="form-check form-switch">
+                                                        <label class="form-check-label" for="active"></label>
+                                                        <input class="form-check-input" data-id="{{ post.id }}"
+                                                               type="checkbox"
+                                                               id="active" {{ (post.active) ? 'checked' : '' }}>
+                                                    </div>
+                                                </td>
+                                                <td>{{ post.createdAt | date }}</td>
+                                                <td>
+                                                    <a href="{{ path('post_edit', {'slug': post.slug}) }}"
+                                                       class=""><i class="ri-edit-line"></i></a>
+                                                    <a href="#" data-id="{{ post.id }}" data-title="{{ post.title }}"
+                                                       data-bs-toggle="modal" data-bs-target="#staticBackdrop"
+                                                       class=" text-danger"><i class="ri-delete-bin-6-line"></i></a>
+                                                </td>
+                                            </tr>
+                                        {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                            {% else %}
+                                <div class="d-flex justify-content-center align-items-center vh-100">
+                                    <i class="ri-user-smile-line cc-empty-data"></i>
+                                </div>
+                            {% endif %}
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+         aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title green fs-5" id="staticBackdropLabel">Supprimer un article</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+
+                </div>
+                <div class="modal-footer">
+                    <a href="#" type="button" class="btn btn-secondary" data-bs-dismiss="modal">Annuler</a>
+                    <a href="#" type="button" class="cc-btn-mini cc-btn">Supprimer</a>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

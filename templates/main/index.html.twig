@@ -1,14 +1,9 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}{{ pageTitle }}{% endblock %}
 
 {% block body %}
     <div class="container">
-
-        {% for message in app.flashes('success') %}
-            <div class="alert alert-success" role="alert">{{ message }}</div>
-        {% endfor %}
-
         <section class="py-5 at-the-top" id="at-the-top">
             <div class="row">
                 <div class="col-md-8 recents">
@@ -22,57 +17,22 @@
                                     aria-label="Slide 3"></button>
                         </div>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <a href="#">
-                                    <img src="{{ asset('assets/img/woman.jpg') }}" class="d-block w-100" alt="...">
+                            {% for post in posts %}
+                                <div class="carousel-item">
+                                    <img src="{{ asset('assets/posts/' ~ post.images[0].name ) }}" class="d-block w-100" alt="...">
                                     <div class="carousel-caption d-none d-md-block">
-                                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolor dolore,
-                                           dolorum harum id, minima nam odit, pariatur perferendis quos reiciendis suscipit
-                                           ut velit veritatis.</p>
+                                        <p>{{ post.content }}</p>
                                         <div class="row">
                                             <div class="col-md-6 text-start">
-                                                <h5 class="text-warning text-uppercase zen-old">First slide label</h5>
+                                                <h5 class="text-warning zen-old">{{ post.category }}</h5>
                                             </div>
                                             <div class="col-md-6 text-end">
-                                                <i class="ri-time-fill"></i> Samedi 18/04/1970 à 13h53
+                                                <i class="ri-time-fill"></i>{{ post.createdAt | date}}
                                             </div>
                                         </div>
                                     </div>
-
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('assets/img/anemone.jpg') }}" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Amet explicabo nemo
-                                       reiciendis reprehenderit voluptatem. Debitis eius error et incidunt modi
-                                       necessitatibus officiis ratione rerum temporibus.</p>
-                                    <div class="row">
-                                        <div class="col-md-6 text-start">
-                                            <h5 class="text-warning text-uppercase zen-old">Second slide label</h5>
-                                        </div>
-                                        <div class="col-md-6 text-end">
-                                            <i class="ri-time-fill"></i> Samedi 18/04/1970 à 13h53
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
-                            <div class="carousel-item">
-                                <img src="{{ asset('assets/img/hands.jpg') }}" class="d-block w-100" alt="...">
-                                <div class="carousel-caption d-none d-md-block">
-                                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur commodi,
-                                       corporis dignissimos distinctio et impedit incidunt laboriosam mollitia, porro
-                                       quia quod quos ratione rem sequi.</p>
-                                    <div class="row">
-                                        <div class="col-md-6 text-start">
-                                            <h5 class="text-warning text-uppercase zen-old">Third slide label</h5>
-                                        </div>
-                                        <div class="col-md-6 text-end">
-                                            <i class="ri-time-fill"></i> Samedi 18/04/1970 à 13h53
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
                         </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#recent-carousel"
                                 data-bs-slide="prev">

@@ -18,3 +18,14 @@
 /phpunit.xml
 .phpunit.result.cache
 ###< phpunit/phpunit ###
+
+###> public/assets ###
+/public/assets/.sass-cache
+/public/assets/img
+/public/assets/imgs
+/public/uploads
+###< public/assets ###
+
+###> liip/imagine-bundle ###
+/public/media/cache/
+###< liip/imagine-bundle ###

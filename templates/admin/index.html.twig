@@ -1,0 +1,16 @@
+{% extends 'admin/admin.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+    <div class="container">
+
+        {% for message in app.flashes('success') %}
+            <div class="alert alert-success" role="alert">{{ message }}</div>
+        {% endfor %}
+
+        <section class="py-5 at-the-top" id="at-the-top">
+            <h4>Tableau de bord</h4>
+        </section>
+    </div>
+{% endblock %}
